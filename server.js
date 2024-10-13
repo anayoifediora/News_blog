@@ -1,9 +1,12 @@
 //Importing required packages and modules
 const express = require('express');
 const sequelize = require('./config/connection');
+const routes = require('./controllers/index')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(routes)
 
 //Built-in Express.js Middleware that parses JSON strings sent via HTTP requests to JS objects
 app.use(express.json());
