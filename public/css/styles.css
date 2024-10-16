@@ -1,0 +1,40 @@
+:root {
+    --theme: rgb(55, 125, 152);
+}
+
+* {
+  font-family: "Urbanist", serif;
+  font-style: normal;
+}
+
+/* main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.login-container, .signup-container {
+    width: 35%;
+    border: 1px solid black;
+    background-color: rgb(230, 225, 225);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+}
+
+.custom-login-btn {
+    background-color: var(--theme);
+}
+.form-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.custom-navbar {
+    background-color: var(--theme);
+}
+.custom-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
