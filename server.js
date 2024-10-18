@@ -6,9 +6,14 @@ const path = require('path');
 const session = require('express-session');
 require('dotenv').config();
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({})
 
+// Required for session storage
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//This enables the application of the functions in utils folder 
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -1,0 +1,19 @@
+{{#if logged_in}}
+<div class="custom-singlepost container-fluid">
+    <h2 class="m-3">{{post.title}}</h2>
+    <div class="card w-75">
+        <div class="card-header d-flex flex-row justify-content-between">
+            <h4 class="m-2">Written by: {{post.user.username}}</h4>
+            <p class="m-2">Date: {{ formatDate post.createdAt}}</p>
+        </div>
+        <div class="card-body">{{post.description}}</div>
+    </div>
+</div>
+{{else}}
+<div class="container-fluid">
+    <h3 class="text-warning">Kindly login to read a news post or article</h3>
+
+</div>
+{{/if}}
+        
+    

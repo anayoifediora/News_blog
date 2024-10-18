@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 //GET request to read a specific post including its associated comments
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [{ model: Comment }, { model: User, 
@@ -12,7 +13,14 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: `No post found with this id: ${req.params.id}`});
             return;
         }
-        return res.status(200).json(postData)
+        
+        const post = postData.get({ plain: true })
+        console.log(post)
+            res.render('singlepost', { 
+                post,
+                //Pass the logged in status to the template 
+                logged_in: req.session.logged_in
+            });
     } catch (err) {
         return res.status(500).json(err)
     }

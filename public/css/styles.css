@@ -1,12 +1,28 @@
 :root {
     --theme: rgb(55, 125, 152);
 }
-
-* {
-  font-family: "Urbanist", serif;
-  font-style: normal;
-}
-
+@font-face {
+    font-family: 'Apercu';
+    src: url('/fonts/Apercu-Regular.woff2') format('woff2'),
+         url('/fonts/Apercu-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Apercu';
+    src: url('/fonts/Apercu-Bold.woff2') format('woff2'),
+         url('/fonts/Apercu-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  * {
+    font-family: 'Apercu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 /* main {
     display: flex;
     justify-content: center;
@@ -37,4 +53,9 @@
     font-size: 2.5rem;
     font-weight: 600;
     text-decoration: none;
+}
+.custom-singlepost {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
