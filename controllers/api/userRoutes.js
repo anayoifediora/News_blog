@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 //POST route to enable users login 
 router.post('/login', async (req, res) => {
@@ -27,6 +28,7 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
+            req.session.email = userData.email;
 
             res.json({ user: userData, message: "Successfully logged in!"})
         })
@@ -75,5 +77,25 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+router.get('/:email', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findOne({
+            where: {
+                email: req.params.email
+            },
+            include: [{ model: Post }]
+        })
+        const user = userData.get({ plain: true });
+        console.log(user)
+        res.render('dashboard', { 
+            user,
+            logged_in: req.session.logged_in,
+            email: req.session.email,
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;

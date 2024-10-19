@@ -1,0 +1,34 @@
+<div class="d-flex flex-row">
+    <div class="w-50 me-3">
+        <h2 class="m-3">{{user.username}}'s Posts</h2>
+        {{#each user.posts as |post|}}
+        <div class="card m-3">
+            <div class="card-header d-flex flex-row justify-content-between">
+                <a href='/api/posts/{{post.id}}'>{{post.title}}</a>
+                <p>{{ formatDate post.createdAt}}</p>
+            </div>
+            <div class="card-body">{{post.description}}</div>
+            <div class="card-footer">
+                <button type="submit" class="custom-login-btn m-3 w-25 text-light rounded-2">Delete</button>
+                <button type="submit" class="custom-login-btn m-3 w-25 text-light rounded-2">Update</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="custom-newpost w-50 m-3 border border-subtle">
+        <button type="submit" class="custom-login-btn m-3 w-25 text-light rounded-2">Create New Post</button>
+        <form class="custom-postform">
+            <div class="m-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control border border-dark" id="title" name="title">
+            </div>
+            <div class="m-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control border border-dark" id="description" name="description"></textarea>
+            </div>
+            <button type="submit" class="custom-post-btn m-3 w-25 text-light rounded-2">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/dashboard.js"></script>

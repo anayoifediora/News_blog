@@ -38,7 +38,7 @@
 
 }
 
-.custom-login-btn {
+.custom-login-btn, .custom-post-btn {
     background-color: var(--theme);
 }
 .form-label {
@@ -58,4 +58,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+}
+.custom-newpost {
+    background-color: rgb(230, 225, 225);
 }
