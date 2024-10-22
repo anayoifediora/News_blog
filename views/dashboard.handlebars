@@ -9,14 +9,14 @@
             </div>
             <div class="card-body">{{post.description}}</div>
             <div class="card-footer">
-                <button type="submit" class="custom-login-btn m-3 w-25 text-light rounded-2">Delete</button>
-                <button type="submit" class="custom-login-btn m-3 w-25 text-light rounded-2">Update</button>
+                <button type="submit" class="custom-delete-btn m-3 w-25 text-light rounded-2" id="{{post.id}}">Delete</button>
+                <button type="submit" class="custom-update-btn m-3 w-25 text-light rounded-2">Update</button>
             </div>
         </div>
         {{/each}}
     </div>
-    <div class="custom-newpost w-50 m-3 border border-subtle">
-        <button type="submit" class="custom-login-btn m-3 w-25 text-light rounded-2">Create New Post</button>
+    <div class="custom-newpost w-50 m-3">
+        <button type="submit" class="custom-createpost-btn m-3 w-25 text-light rounded-2">New Post</button>
         <form class="custom-postform">
             <div class="m-3">
                 <label for="title" class="form-label">Title</label>

@@ -78,11 +78,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:email', withAuth, async (req, res) => {
+//GET route to get all posts by a specific user by email
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userData = await User.findOne({
             where: {
-                email: req.params.email
+                email: req.session.email
             },
             include: [{ model: Post }]
         })

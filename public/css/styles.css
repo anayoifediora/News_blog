@@ -38,8 +38,12 @@
 
 }
 
-.custom-login-btn, .custom-post-btn {
+button
+ {
     background-color: var(--theme);
+}
+.custom-postform {
+    display: none;
 }
 .form-label {
     font-size: 1.2rem;
@@ -54,11 +58,16 @@
     font-weight: 600;
     text-decoration: none;
 }
+.custom-menu {
+    color: white;
+}
+
 .custom-singlepost {
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-.custom-newpost {
+.custom-postform {
     background-color: rgb(230, 225, 225);
 }
+  
