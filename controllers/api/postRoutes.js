@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth')
 
@@ -6,8 +7,13 @@ const withAuth = require('../../utils/auth')
 router.get('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: Comment }, { model: User, 
-                attributes: ['username']  }]
+            include: [{ model: Comment, include: [{ model: User, attributes: ['username']}] },],
+            attributes: {
+                include: [[
+                    sequelize.literal('(SELECT COUNT(*) FROM comment WHERE comment.post_id = post_id)'),
+                    'totalComments',
+                ]]
+            }
         });
         if (!postData) {
             res.status(404).json({ message: `No post found with this id: ${req.params.id}`});
@@ -75,4 +81,16 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+//POST request to create a comment
+// router.post('/comments', async (req, res) => {
+//     try {
+//         const commentData = await Comment.create(req.body);
+//         req.session.save(() => {
+//             req.session.logged_in = true;
+//             res.status(200).json(commentData);
+//         })
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// })
 module.exports = router;

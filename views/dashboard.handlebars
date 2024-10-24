@@ -1,6 +1,7 @@
 <div class="d-flex flex-row">
-    <div class="w-50 me-3">
+    <div class="custom-userposts w-50 me-3">
         <h2 class="m-3">{{user.username}}'s Posts</h2>
+        {{!-- Renders each article the user created. --}}
         {{#each user.posts as |post|}}
         <div class="card m-3">
             <div class="card-header d-flex flex-row justify-content-between">
@@ -10,13 +11,14 @@
             <div class="card-body">{{post.description}}</div>
             <div class="card-footer">
                 <button type="submit" class="custom-delete-btn m-3 w-25 text-light rounded-2" id="{{post.id}}">Delete</button>
-                <button type="submit" class="custom-update-btn m-3 w-25 text-light rounded-2">Update</button>
+                <button type="button" class="custom-update-btn m-3 w-25 text-light rounded-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update</button>
             </div>
         </div>
         {{/each}}
     </div>
     <div class="custom-newpost w-50 m-3">
         <button type="submit" class="custom-createpost-btn m-3 w-25 text-light rounded-2">New Post</button>
+        {{!-- New Post form --}}
         <form class="custom-postform">
             <div class="m-3">
                 <label for="title" class="form-label">Title</label>
@@ -31,4 +33,35 @@
     </div>
 </div>
 
+
+<!-- Update form Modal -->
+
+{{#each user.posts as |post|}}
+<div class="modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="m-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control border border-dark" id="title" name="title" value="{{post.title}}">
+            </div>
+            <div class="m-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control border border-dark" id="description" name="description">{{post.description}}</textarea>
+            </div>
+            <button type="submit" class="custom-post-btn m-3 w-25 text-light rounded-2">Submit</button>
+            <button type="button" class="m-3 w-25 text-light rounded-2" data-bs-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+    
 <script src="/js/dashboard.js"></script>

@@ -70,4 +70,10 @@ button
 .custom-postform {
     background-color: rgb(230, 225, 225);
 }
-  
+.custom-single-comment {
+    border: 1px solid black;
+}
+.custom-comments {
+    display: none;
+    
+}

@@ -1,7 +1,8 @@
 const postForm = document.querySelector('.custom-postform');
 const newPostBtn = document.querySelector('.custom-createpost-btn');
 const deleteBtn = document.querySelector('.custom-delete-btn');
-
+const updateBtn = document.querySelector('.custom-update-btn');
+const postsContainer = document.querySelector('.custom-userposts');
 
 //Event listener that displays the new post form when the "new post" button is clicked.
 newPostBtn.addEventListener('click', () => {
@@ -22,7 +23,7 @@ const postFormHandler = async (e) => {
             headers: { 'Content-type': 'application/json' }
         });
         if (response.ok) {
-            document.location.reload()
+            document.location.reload();
         } else {
             alert('Failed to create post');
         }
@@ -32,21 +33,24 @@ const postFormHandler = async (e) => {
 
 //Event handler to delete a post
 const deleteHandler = async (e) => {
-    e.preventDefault();
-    
-    const id = e.target.id
-    const response = await fetch(`/api/posts/${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-type': 'application/json' } 
-    })
-    if(response.ok) {
-        document.location.reload()
-    } else {
-        alert('Failed to delete post')
+    if(e.target.classList.contains('custom-delete-btn')) {
+        e.stopPropagation();
+        
+        const id = e.target.id
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-type': 'application/json' } 
+        })
+        if(response.ok) {
+            document.location.reload()
+        } else {
+            alert('Failed to delete post')
+        }
     }
-
 
 }
 
-deleteBtn.addEventListener('click', deleteHandler)
+//Event handler to update a post
+
+postsContainer.addEventListener('click', deleteHandler)
 postForm.addEventListener('submit', postFormHandler);
