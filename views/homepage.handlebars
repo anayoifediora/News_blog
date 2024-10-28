@@ -2,8 +2,8 @@
     <h2 class="m-3">Latest News</h2>
     {{#each posts as |post|}}
     <div class="card m-3">
-        <div class="card-header"><a href='/api/posts/{{post.id}}'>{{post.title}}</a></div>
-        <div class="card-body">{{post.description}}</div>
+        <h4 class="card-header">{{post.title}}</h4>
+        <div class="card-body">{{formatText post.description}}....<span><a href='/api/posts/{{post.id}}'>Click to read more</a></span></div>
         <div class="card-footer">{{post.user.username}}</div>
     </div>
     {{/each}}

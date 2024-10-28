@@ -10,7 +10,7 @@ router.get('/:id', withAuth, async (req, res) => {
             include: [{ model: Comment, include: [{ model: User, attributes: ['username']}] },],
             attributes: {
                 include: [[
-                    sequelize.literal('(SELECT COUNT(*) FROM comment WHERE comment.post_id = post_id)'),
+                    sequelize.literal(`(SELECT COUNT(*) FROM comment WHERE POST_ID = '${req.params.id}')`),
                     'totalComments',
                 ]]
             }
@@ -21,7 +21,6 @@ router.get('/:id', withAuth, async (req, res) => {
         }
         
         const post = postData.get({ plain: true })
-        console.log(post)
             res.render('singlepost', { 
                 post,
                 //Pass the logged in status to the template 
@@ -31,6 +30,30 @@ router.get('/:id', withAuth, async (req, res) => {
         return res.status(500).json(err)
     }
 });
+
+//GET request to return JSON data for the update fields
+router.get('/updates/:id', async(req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: Comment, include: [{ model: User, attributes: ['username']}] },],
+            attributes: {
+                include: [[
+                    sequelize.literal(`(SELECT COUNT(*) FROM comment WHERE POST_ID = '${req.params.id}')`),
+                    'totalComments',
+                ]]
+            }
+        });
+        if (!postData) {
+            res.status(404).json({ message: `No post found with this id: ${req.params.id}`});
+            return;
+        }
+        
+        const post = postData.get({ plain: true })
+        return res.status(200).json(post)
+    } catch (err) {
+        return res.status(500).json(err)
+    }
+})
 
 //POST request to create a post
 router.post('/', async (req, res) => {
