@@ -1,10 +1,10 @@
 {{#if logged_in}}
-<div class="custom-singlepost container-fluid">
+<div class="custom-singlepost container-fluid m-2">
     <h2 class="m-3">{{post.title}}</h2>
     <div class="card w-75">
         <div class="card-header d-flex flex-row justify-content-between">
-            <h4 class="m-2">Written by: {{post.user.username}}</h4>
-            <p class="m-2">Date: {{ formatDate post.createdAt}}</p>
+            <h4 class="m-2">By: {{post.user.username}}</h4>
+            <p class="m-2">{{ formatDate post.createdAt}}</p>
         </div>
         <div class="card-body">{{post.description}}</div>
         <div class="card-footer">
@@ -18,9 +18,9 @@
         <h3 class="m-3">Comments</h3>
         {{#each post.comments as |comment|}}
         <div class="custom-single-comment bg-light m-2 rounded-2">
-            <div class="d-flex flex-row justify-content-between ">
-                <p class="m-2">{{comment.user.username}}</p>
-                <p class="m-2">{{ formatDate comment.createdAt}}</p>
+            <div class="d-flex flex-row justify-content-between">
+                <p class="m-2 fst-italic">{{comment.user.username}}</p>
+                <p class="m-2">{{formatDate comment.createdAt}}</p>
             </div>
             <p class="m-2">{{comment.description}}</p>
         </div>
@@ -47,8 +47,8 @@
                 <textarea class="form-control border border-dark" id="comment" name="comment"></textarea>
             </div>
             <div>
-                <button type="submit" class="custom-postcomment-btn m-3 p-2 text-light rounded-2">Post</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="custom-postcomment-btn m-3 p-1 text-light rounded-2">Post</button>
+                <button type="button" class="custom-close-comment-btn m-3 p-1 text-light rounded-2" data-bs-dismiss="modal">Close</button>
             </div>
         </form>
       </div>

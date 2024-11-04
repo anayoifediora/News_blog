@@ -14,7 +14,7 @@ newPostBtn.addEventListener('click', () => {
 //Event handler that creates a new post.
 const postFormHandler = async (e) => {
     e.preventDefault();
-
+    
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
     
@@ -35,21 +35,25 @@ const postFormHandler = async (e) => {
 
 //Event handler to delete a post
 const deleteHandler = async (e) => {
+    //confirm the deletion of a post
+    
     if(e.target.classList.contains('custom-delete-btn')) {
         e.stopPropagation();
-        
-        const id = e.target.id;
-        const response = await fetch(`/api/posts/${id}`, {
-            method: 'DELETE',
-            headers: { 'Content-type': 'application/json' } 
-        })
-        if(response.ok) {
-            document.location.reload();
-            alert('Post deleted !😊');
-        } else {
-            alert('Failed to delete post');
+        let confirmation = 'Are you sure you want to delete?';
+        if (confirm(confirmation) == true) {
+            const id = e.target.id;
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'DELETE',
+                headers: { 'Content-type': 'application/json' } 
+            })
+            if(response.ok) {
+                document.location.reload();
+                alert('Post deleted !😊');
+            } else {
+                alert('Failed to delete post');
+            }
         }
-    }
+    } 
 
 }
 
@@ -86,7 +90,7 @@ const updateFormHandler = async (e) => {
     e.preventDefault();
 
     const title = document.querySelector('#update-title').value.trim();
-    const description = document.querySelector('#update-description').value.trim();
+    const description = document.querySelector('#update-description').value.trim()
     const id = updatePostBtn.getAttribute('id');
     if(title && description) {
         
@@ -97,6 +101,7 @@ const updateFormHandler = async (e) => {
         });
         if (response.ok) {
             document.location.reload();
+            alert('Successfully updated! 👍');
         } else {
             alert('Failed to update post');
         }

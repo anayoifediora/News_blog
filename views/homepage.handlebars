@@ -1,11 +1,30 @@
-<div class="w-50">
-    <h2 class="m-3">Latest News</h2>
-    {{#each posts as |post|}}
-    <div class="card m-3">
-        <h4 class="card-header">{{post.title}}</h4>
-        <div class="card-body">{{formatText post.description}}....<span><a href='/api/posts/{{post.id}}'>Click to read more</a></span></div>
-        <div class="card-footer">{{post.user.username}}</div>
+<div class="custom-homepage-container row d-flex flex-row justify-content-evenly">
+    
+    <div class="custom-allposts col-lg-5 d-flex flex-column justify-content-center me-3">
+        <h2 class="m-3">Latest Gist</h2>
+        {{#each posts as |post|}}
+        <div class="card m-2">
+            <div class="card-header d-flex flex-row justify-content-between">
+                <h4>{{post.title}}</h4>
+                <p>{{ formatDate post.createdAt}}</p>
+            </div>
+            <div class="card-body">{{formatText post.description}}....<br><a class="click-to-read" href='/api/posts/{{post.id}}'>Click to read more</a></br></div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <p class="fs-6">By: {{post.user.username}}</p>
+                <div class="d-flex flex-row">
+                    <i class="bi bi-chat-left-dots fs-5 p-1"></i>
+                    <p class="fs-5 ms-1">{{post.comments.length}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
+    <div class="custom-external-news col-lg-5 ms-3">
+        <h2 class="m-3">External News</h2>
+        
+    </div>
+    
 </div>
+
+<script src="/js/homepage.js"></script>
 

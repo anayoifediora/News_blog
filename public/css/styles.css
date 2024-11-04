@@ -24,18 +24,14 @@
     box-sizing: border-box;
   }
 /* main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(55, 125, 152, 0.1);
+    
 } */
 .login-container, .signup-container {
     width: 35%;
     border: 1px solid black;
     background-color: rgb(230, 225, 225);
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-
+    margin: 15px;
 }
 
 button
@@ -44,6 +40,8 @@ button
 }
 .custom-postform {
     display: none;
+    border: solid 1px grey;
+    border-radius: 1px;
 }
 .form-label {
     font-size: 1.2rem;
@@ -67,13 +65,73 @@ button
     flex-direction: column;
     align-items: center;
 }
-.custom-postform {
-    background-color: rgb(230, 225, 225);
-}
 .custom-single-comment {
     border: 1px solid black;
 }
 .custom-comments {
-    display: none;
-    
+    display: none;    
+}
+.custom-login-btn, .custom-signup-btn {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 90%;
+    position: relative;
+    left: 2%;
+    border-radius: 7px;
+}
+.custom-allposts {
+    width: 40%;
+}
+img {
+    width: 80%;
+    margin: 0.4rem;
+    border: 1px solid black;
+}
+.custom-external-news {
+    width: 40%;
+}
+.custom-external-news > a > h4, .custom-external-news > a > p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 80%;
+    margin: 0.4rem;
+}
+.custom-external-news > a {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-bottom: 5px;
+}
+.nav-link:link {
+    color: #FF0000;
+}
+.nav-link:visited {
+    color: white;
+}
+.nav-link:hover {
+    cursor: pointer;
+}
+
+.click-to-read:visited {
+    color: purple;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+    .login-container, .signup-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 170px;
+        position: relative;     
+    }
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
 }

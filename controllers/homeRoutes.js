@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
         const postData = await Post.findAll({
             include: [{ model: Comment }, { model: User, 
                 attributes: ['username']
-            }]
+            }],
+            // order: ['createdAt', 'DESC']
         });
         const posts = postData.map((item) => item.get({ plain: true }))
         console.log(posts);

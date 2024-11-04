@@ -8,21 +8,22 @@
                 <h4>{{post.title}}</h4>
                 <p>{{ formatDate post.createdAt}}</p>
             </div>
-            <div class="card-body">{{formatText post.description}}...<span><a href='/api/posts/{{post.id}}'>Click to read more</a></span></div>
+            <div class="card-body">{{formatText post.description}}...<br><a href='/api/posts/{{post.id}}'>Click to read more</a></br></div>
             <div class="card-footer">
-                <button type="submit" class="custom-delete-btn m-3 w-25 text-light rounded-2" id="{{post.id}}">Delete</button>
+                <button type="submit" class="custom-delete-btn m-1 p-2 text-light rounded-2" id="{{post.id}}">Delete</button>
                 <button 
                     type="button" 
-                    class="custom-update-btn m-3 w-25 text-light rounded-2" 
+                    class="custom-update-btn m-1 p-2 text-light rounded-2" 
                     data-bs-toggle="modal" 
                     data-bs-target="#staticBackdrop"
-                    id="{{post.id}}">Update</button>
+                    id="{{post.id}}">Update
+                </button>
             </div>
         </div>
         {{/each}}
     </div>
     <div class="custom-newpost w-50 m-3">
-        <button type="submit" class="custom-createpost-btn m-3 w-25 text-light rounded-2">New Post</button>
+        <button type="submit" class="custom-createpost-btn m-3 p-3 text-light rounded-2">➕ Add Post</button>
         {{!-- New Post form --}}
         <form class="custom-postform">
             <div class="m-3">
@@ -33,7 +34,7 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control border border-dark" id="description" name="description"></textarea>
             </div>
-            <button type="submit" class="custom-post-btn m-3 w-25 text-light rounded-2">Submit</button>
+            <button type="submit" class="custom-post-btn m-3 p-2 text-light rounded-2">Submit</button>
         </form>
     </div>
 </div>
