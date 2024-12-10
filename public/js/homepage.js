@@ -16,6 +16,8 @@ const displayNews = (arr) => {
 
        newsHeadlineEl.textContent = arr[i].title;
        newsDateEl.textContent = arr[i].published_at;
+       console.log((arr[i].published_at))
+
     }
 }
 const externalNews = async () => {
@@ -29,7 +31,5 @@ const externalNews = async () => {
       console.error(err)
     }
   }
-
-
 
 externalNews();

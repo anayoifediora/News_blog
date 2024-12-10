@@ -11,6 +11,5 @@ module.exports = {
     formatText: (description) => {
         return description.split(' ').slice(0, 30).join(' ');
     },
-    
 }
 

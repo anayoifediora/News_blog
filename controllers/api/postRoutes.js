@@ -7,7 +7,8 @@ const withAuth = require('../../utils/auth')
 router.get('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: Comment, include: [{ model: User, attributes: ['username']}] }, { model: User, attributes: ['username']}],
+            include: [{ model: Comment, include: [{ model: User, attributes: ['username']}]}, 
+                      { model: User, attributes: ['username']}],
             attributes: {
                 include: [[
                     sequelize.literal(`(SELECT COUNT(*) FROM comment WHERE POST_ID = '${req.params.id}')`),

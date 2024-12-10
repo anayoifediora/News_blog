@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
             include: [{ model: Comment }, { model: User, 
                 attributes: ['username']
             }],
-            // order: ['createdAt', 'DESC']
+            order: [['createdAt', 'DESC']]
         });
         const posts = postData.map((item) => item.get({ plain: true }))
         console.log(posts);
