@@ -4,7 +4,7 @@ require('dotenv').config();
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-    sequelize = new Sequelize(process.env.JAWSDB_URL || 'mysql://root:1luvAfoma$@localhost:3306/blog_db')
+    sequelize = new Sequelize(process.env.JAWSDB_URL)
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
