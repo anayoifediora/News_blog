@@ -138,7 +138,21 @@ img {
 .custom-comments {
     width: 50%;
 }
-@media screen and (max-width: 576px) {
+.custom-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+.custom-userposts {
+    width: 60%;
+    margin-right: 1.5rem;
+}
+.custom-newpost {
+    width: 60%;
+    margin: 1rem;
+}
+@media screen and (max-width: 768px) {
     .login-container, .signup-container {
         width: 80%;
         display: flex;
@@ -174,5 +188,16 @@ img {
         flex-direction: column;
         justify-content: center;
         padding: 0.5rem;
+    }
+    .custom-dashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .custom-userposts {
+        width: 90%;
+    }
+    .custom-comments {
+        font-size: 0.8rem;
     }
 }

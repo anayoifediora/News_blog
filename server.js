@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3001;
 const sess = {
     secret: process.env.SESSION_SECRET,
     cookie: {},
-    //will not resave the session data for every request
+    //This configuration will not resave the session data for every request
     resave: false,
     saveUninitialized: false,
     store: new SequelizeStore({

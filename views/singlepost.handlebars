@@ -6,7 +6,7 @@
             <h4 class="custom-username m-2">By: {{post.user.username}}</h4>
             <p class="m-1">{{ formatDate post.createdAt}}.</p>
         </div>
-        <p class="card-body">{{post.description}}</p>
+        <p class="card-body">{{{ formatDescription post.description}}}</p>
         <div class="card-footer">
             <button type="button" class="m-3 p-2 rounded-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add Comment

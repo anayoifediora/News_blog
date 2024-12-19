@@ -1,5 +1,20 @@
-<div class="d-flex flex-row">
-    <div class="custom-userposts w-50 me-3">
+<div class="custom-dashboard">
+    <div class="custom-newpost">
+        <button type="submit" class="custom-createpost-btn m-3 p-3 rounded-2">➕ Add Post</button>
+        {{!-- New Post form --}}
+        <form class="custom-postform">
+            <div class="m-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control border border-dark" id="title" name="title">
+            </div>
+            <div class="m-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control border border-dark" id="description" name="description"></textarea>
+            </div>
+            <button type="submit" class="custom-post-btn m-3 p-2 rounded-2">Submit</button>
+        </form>
+    </div>
+    <div class="custom-userposts">
         <h2 class="m-3">{{user.username}}'s Posts</h2>
         {{!-- Renders each article the user created. --}}
         {{#each user.posts as |post|}}
@@ -22,21 +37,7 @@
         </div>
         {{/each}}
     </div>
-    <div class="custom-newpost w-50 m-3">
-        <button type="submit" class="custom-createpost-btn m-3 p-3 rounded-2">➕ Add Post</button>
-        {{!-- New Post form --}}
-        <form class="custom-postform">
-            <div class="m-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control border border-dark" id="title" name="title">
-            </div>
-            <div class="m-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control border border-dark" id="description" name="description"></textarea>
-            </div>
-            <button type="submit" class="custom-post-btn m-3 p-2 rounded-2">Submit</button>
-        </form>
-    </div>
+    
 </div>
 
 

@@ -85,7 +85,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
             where: {
                 email: req.session.email
             },
-            include: [{ model: Post }]
+            include: [{ model: Post}], 
+            
         })
         const user = userData.get({ plain: true });
         console.log(user)

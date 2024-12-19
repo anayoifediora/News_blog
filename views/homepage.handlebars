@@ -4,7 +4,7 @@
         <h2 class="m-3">Latest Gist</h2>
         {{#each posts as |post|}}
         <div class="card m-2">
-            <div class="card-header d-flex flex-column justify-content-between">
+            <div class="card-header d-flex flex-column justify-content-between p-3">
                 <h4>{{post.title}}</h4>
                 <p>{{ formatDate post.createdAt}}</p>
             </div>
@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div>
+        <hr>
         {{/each}}
     </div>
     <div class="custom-external-news col-lg-5 d-flex flex-column ms-3">
