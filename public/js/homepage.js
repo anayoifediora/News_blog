@@ -30,7 +30,6 @@ const displayNews = (arr) => {
 
        newsHeadlineEl.textContent = arr[i].title;
        newsDateEl.textContent = changeDate(arr[i].published_at);
-       console.log((arr[i].published_at))
 
     }
 }
@@ -39,5 +38,5 @@ const displayNews = (arr) => {
 
 
 const changeDate = (date) => {
-  return date.split('T').shift();
+  return date.split('T').shift().split('-').reverse().join('-');
 }
