@@ -13,8 +13,9 @@ module.exports = {
     },
 
     formatDescription: (text) => {
-        return text.split('\n').map(item => `<p class = 'ps-3 pe-3'>${item}</p>`).join('')
+        return text.split('\n\n').map(item => `<p class = 'ps-3 pe-3'>${item}</p>`).join('');
     }
+    
     
 }
 

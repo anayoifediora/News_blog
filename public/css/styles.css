@@ -1,5 +1,6 @@
 :root {
     --theme: rgb(55, 125, 152);
+    --bs-primary-border-subtle: #9ec5fe
 }
 @font-face {
     font-family: 'Apercu';
@@ -132,6 +133,9 @@ img {
 .custom-allposts > h2, .custom-external-news > h2 {
     align-self: center;
 }
+.card {
+    margin: 0.5rem;
+}
 .custom-post-card {
     width: 70%;
 }
@@ -151,6 +155,35 @@ img {
 .custom-newpost {
     width: 60%;
     margin: 1rem;
+}
+.custom-footer {
+    background-color: var(--theme);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:175px;
+    margin-top: 20px;
+    position: relative;
+    top: 100vh;
+    
+}
+.custom-footer > div > a {
+    text-decoration: none;
+}
+.custom-footer-icons {
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    text-decoration: none;
+}
+.custom-footer > div {
+    margin: 10px;
+}
+.custom-footer > div > i:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 @media screen and (max-width: 768px) {
     .login-container, .signup-container {

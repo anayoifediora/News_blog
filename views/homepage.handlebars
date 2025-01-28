@@ -3,10 +3,10 @@
     <div class="custom-allposts col-lg-5 d-flex flex-column justify-content-center me-3">
         <h2 class="m-3">Latest Gist</h2>
         {{#each posts as |post|}}
-        <div class="card m-2">
-            <div class="card-header d-flex flex-column justify-content-between p-3">
+        <div class="card border border-dark-subtle">
+            <div class="card-header d-flex flex-column justify-content-between p-3 pe-3">
                 <h4>{{post.title}}</h4>
-                <p>{{ formatDate post.createdAt}}</p>
+                <p>{{ formatDate post.createdAt}}.</p>
             </div>
             <div class="card-body">{{formatText post.description}}....<br><a class="click-to-read" href='/api/posts/{{post.id}}'>Click to read more</a></br></div>
             <div class="card-footer d-flex justify-content-between align-items-center">

@@ -16,6 +16,7 @@ const formHandler = async (e) => {
 
         if(response.ok) {
             document.location.replace('/');
+            
         } else {
             alert('Failed to login');
         }
