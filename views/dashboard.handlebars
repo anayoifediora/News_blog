@@ -15,8 +15,10 @@
         </form>
     </div>
     <div class="custom-userposts">
-        <h2 class="m-3">{{user.username}}'s Posts</h2>
         {{!-- Renders each article the user created. --}}
+        {{#if user.posts}}
+        <h2 class="m-3">{{user.username}}'s Posts</h2>
+        
         {{#each user.posts as |post|}}
         <div class="card m-3">
             <div class="card-header d-flex flex-row justify-content-between">
@@ -36,6 +38,9 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+            <h3 class="m-3">You have not created any post yet. 😊</h3>
+        {{/if}}
     </div>
     
 </div>

@@ -27,10 +27,11 @@
     padding: 0;
     box-sizing: border-box;
   }
-/* main {
+.vsc-initialized {
     background-color: rgb(55, 125, 152, 0.1);
     
-} */
+}
+
 .login-container, .signup-container {
     width: 35%;
     border: 1px solid black;
@@ -124,6 +125,7 @@ img {
 }
 .nav-link:hover {
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .click-to-read:visited {
@@ -190,7 +192,8 @@ img {
         width: 80%;
         display: flex;
         flex-direction: column;
-        justify-content: center;   
+        justify-content: center;
+        margin-top: 50px;   
     }
     .login-form {
         display: flex;
@@ -238,4 +241,5 @@ img {
         margin-bottom: 5px;
         align-items: flex-start;
     }
+    
 }
