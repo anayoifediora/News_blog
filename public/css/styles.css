@@ -53,6 +53,7 @@ button:hover {
     display: none;
     border: solid 1px grey;
     border-radius: 1px;
+    background-color: #f0f0f0;
 }
 .form-label {
     font-size: 1.2rem;
@@ -117,13 +118,15 @@ img {
     margin-bottom: 5px;
     align-items: center;
 }
-.nav-link:link {
-    color: #FF0000;
-}
-.nav-link:visited {
+.custom-nav-link {
     color: white;
+    text-decoration: none;
 }
-.nav-link:hover {
+.custom-nav-link:focus {
+    color: #9b2b2b;
+}
+
+.custom-nav-link:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -204,7 +207,7 @@ img {
         font-size: 1rem;
     }
     .card-body {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
     img {
         width: 90%;
@@ -232,7 +235,7 @@ img {
         width: 90%;
     }
     .custom-comments {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     .custom-external-news > a {
         display: flex;

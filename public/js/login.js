@@ -18,7 +18,7 @@ const formHandler = async (e) => {
             document.location.replace('/');
             
         } else {
-            alert('Failed to login');
+            alert('Failed to login, incorrect username or password');
         }
     }
 };

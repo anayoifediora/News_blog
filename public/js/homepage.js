@@ -27,6 +27,7 @@ const displayNews = (arr) => {
        newsAnchorEl.setAttribute('href', `${arr[i].url}`);
        newsAnchorEl.setAttribute('target', '_blank')
        newsImgEl.setAttribute('src', `${arr[i].image_url}`);
+       newsHeadlineEl.setAttribute('style', 'font-weight: bolder');
 
        newsHeadlineEl.textContent = arr[i].title;
        newsDateEl.textContent = changeDate(arr[i].published_at);

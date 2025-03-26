@@ -1,11 +1,11 @@
 <div class="custom-homepage-container row d-flex flex-row justify-content-evenly">
     
     <div class="custom-allposts col-lg-5 d-flex flex-column justify-content-center me-3">
-        <h2 class="m-3">Latest Gist</h2>
+        <h2 class="m-3 fw-bold">Latest Gist</h2>
         {{#each posts as |post|}}
         <div class="card border border-dark-subtle m-3">
             <div class="card-header d-flex flex-column justify-content-between p-3 pe-3">
-                <h4>{{post.title}}</h4>
+                <a href='/api/posts/{{post.id}}'><h4 class="fw-bold">{{post.title}}</h4></a>
                 <p>{{ formatDate post.createdAt}}.</p>
             </div>
             <div class="card-body">{{formatText post.description}}....<br><a class="click-to-read" href='/api/posts/{{post.id}}'>Click to read more</a></br></div>
@@ -21,7 +21,7 @@
         {{/each}}
     </div>
     <div class="custom-external-news col-lg-5 d-flex flex-column ms-3">
-        <h2 class="m-3">World News</h2>
+        <h2 class="m-3 fw-bold">World News</h2>
         
     </div>
     
